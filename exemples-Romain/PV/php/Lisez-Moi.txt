@@ -1,0 +1,23 @@
+si pb à la génération verifier que le fichier xls des propritaires comprend bien 48 colonnes (parfois modifié lors des mises à jour Geoprod)
+
+----------------------------------------
+
+Parametrage des nouveaux :
+- techniciens
+- GE
+- bureaux
+- départements des bureaux
+ 
+==> mettre à jour les fichiers 
+/func/chg_bureau.php
+/func/chg_dept.php
+/func/chg_tech.php
+/func/incl_bureaux.php
+/func/incl_sous-mon-controle.php
+
+----------------------------------------
+
+Mise à jour des modèles :
+Modifier les fichiers odt dans le dossier /template/
+Attention à ne pas copier coller les champs
+ou alors collage spécial "sans mise en forme"
