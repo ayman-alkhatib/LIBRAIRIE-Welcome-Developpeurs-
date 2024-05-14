@@ -243,12 +243,12 @@ input, label {
 	display:block;
 }
 
-.contact-form {
+/* .contact-form {
 	background-color: #DD5555;
 	color: #FFFFFF;
 	padding:20px 330px;
 	height:476px;
-}
+} */
 .contact-form  h1{
 	font-size:36px;
 	font-weight:500px;
