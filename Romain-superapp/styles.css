@@ -1,0 +1,310 @@
+﻿* { 
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+@font-face {
+	font-family: "OpenSans";
+	src: url("./font/OpenSans-Regular.ttf") format("truetype");
+	font-style: normal;
+	font-weight: 300;
+}
+
+@font-face {
+	font-family: "OpenSans";
+	src: url("./font/OpenSans-SemiBold.ttf") format("truetype");
+	font-style: normal;
+	font-weight: 500;
+}
+
+@font-face {
+	font-family: "OpenSans";
+	src: url("./font/OpenSans-Bold.ttf") format("truetype");
+	font-style: normal;
+	font-weight: 700;
+}
+
+body {
+	font-family: "OpenSans", sans-serif;
+	font-weight: 300;
+	font-size: 18px;
+	line-height: 1.8em;
+}
+
+.page {
+	width: 1400px;
+	margin: 0 auto;
+	background-color: #EAEDF0;
+}
+
+.menu {
+	height: 52px;
+	background-color: #DD5555;    /* Corail */
+	padding:10px 0;
+}
+
+.menu img{
+	margin-left: 131px;
+	vertical-align: middle;
+}
+
+.menu  li {
+	display: inline;
+
+}
+
+.menu  li :hover{
+	background: #A64040;
+}
+
+.menu a:link,
+a:visited {
+	color: #FFFFFF;
+	text-decoration: none;
+	padding: 14px;
+}
+
+.about-banner {
+	background-image: url("images/about.jpg.png");
+	background-position: center;
+	color: #FFFFFF;
+	padding: 200px 0;
+	font-size: 24px;
+	height:658px;
+}
+	
+.about-container {
+	width:390px;
+	margin:auto;
+	text-align:center;	
+}
+
+.about-container h1{
+	font-size: 48px;
+	margin-bottom:17px;
+}
+
+.about-container p{
+	margin-bottom:17px;
+}
+
+.about-container hr{
+	margin:0 12px;
+}
+
+.about-container2 {
+	font-size: 18px;
+	padding:18px 0;
+	display:flex;
+}
+
+.about-item {
+	width:112px;
+	height:46px;
+	margin:0 12px;
+	background-color: #FFFFFF;
+	color: #000000;
+	border-radius:5px;
+	cursor: pointer;
+}
+
+.about-item  img{
+	margin:17px 0;
+	margin-right:10px;
+	vertical-align: middle;
+}
+
+.services-section {
+	background-color: #FFFFFF;
+	color:#2E2E2E;
+	text-align:center;
+	font-size: 16px;
+	padding:20px 0;
+}
+
+.services-section  h1{
+	font-size: 36px;
+	font-weight: 500;
+	margin:25px 0;
+}
+
+.services-section  h2{
+	font-size: 28px;
+	font-weight: 500;
+}
+
+.services {
+	display:flex;
+	flex-wrap:wrap;
+	padding: 0 50px 50px 50px;	
+}
+
+.service-container {
+	flex:1;
+
+}
+
+.services-item {
+	width:358px;
+	margin:auto;
+}
+
+.services-item  p{
+	line-height: 1.5em;
+}
+
+.service-img-container{
+	height:120px;
+	width:120px;
+	border-radius:60px;
+	background-color: #DD5555;
+	margin:25px auto;
+	align-items:center;
+}
+
+.service-img-container:hover{
+	background: #A64040;
+}
+
+.service-img-container img{
+	padding: 25px 0;
+}
+
+.team {
+	display:flex;
+	align-items:center;
+	background-color: #FFFFFF;
+	margin:auto;
+	width:100%;
+	padding:60px 142px;
+}
+
+.team-banner h1{
+	font-size: 48px;
+	font-weight: 700;
+}
+
+.team-banner {
+	background-image: url("images/team.jpg.png");
+	color: #FFFFFF;
+	text-align:center;
+	padding:100px 0;
+	height:240px;
+}
+
+.team-item {
+	flex:1;
+	text-align:center;
+	color: #2E2E2E;
+	font-size: 12px;
+}
+
+.team-item  h2{
+	font-size: 28px;
+	height:38px;
+	margin:12px;
+}
+
+.team-item button{
+	background-color: #DD5555;    /* Corail */
+	color: #FFFFFF;
+	height:40px;
+	width:132px;
+	font-size: 18px;	
+}
+
+.team-item a:link,
+a:visited{
+	text-decoration:none;
+	color: #FFFFFF;
+}
+
+.team-item>img{
+	border-radius:120px;
+}
+
+.team-mail img{
+	margin-right:10px;
+	vertical-align: middle;
+}
+
+.team-mail {
+	padding:10px;
+	border-radius:5px;
+	border: none;
+}
+
+.team-mail:hover {
+	background: #A64040;
+}
+
+input, label {
+	display:block;
+}
+
+.contact-form {
+	background-color: #DD5555;
+	color: #FFFFFF;
+	padding:20px 330px;
+	height:476px;
+}
+.contact-form  h1{
+	font-size:36px;
+	font-weight:500px;
+	margin:50px;
+	text-align:center;
+}
+
+.form-container {
+	width:748px;
+}
+
+.form-container  div{
+	width:100%;
+}
+
+.form-container  input{
+	width:100%;
+	border:none;
+	height:32px;
+	border-radius:3px;
+}
+
+.form-container  label{
+	font-size:16px;
+}
+
+.form-container  textarea{
+	width:100%;
+	height:112px;
+	border:none;
+	border-radius:3px;
+	resize: none;
+}
+
+.form-inline {
+	display:flex;
+	margin-bottom:20px;
+}
+
+.form-inline  div:first-of-type{
+	padding-right:32px;
+}
+
+.form-send {
+	margin-top:8px;
+	float:right;
+	font-size:18px;
+	padding:11px;
+	background-color: #FFFFFF;
+	color: #2E2E2E;
+	border-radius:5px;
+	border:none;
+	cursor: pointer;
+}
+
+.form-send  img{
+	margin-right:10px;
+	vertical-align: middle;
+}
