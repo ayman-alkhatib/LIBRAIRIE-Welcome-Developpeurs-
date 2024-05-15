@@ -42,6 +42,8 @@ books.forEach((bookObj) => {
     let author = document.createElement("div")
     let price = document.createElement("div");
 	let cart_button = document.createElement("button");
+	let quantity_container = document.createElement("div");
+	let quantity = document.createElement("input");
 	
 	
 
@@ -56,6 +58,12 @@ books.forEach((bookObj) => {
 
     // Add price Text
     price.append(`$${bookObj.price}`);
+	
+	
+	quantity.type="number";
+	quantity.label="quantité";
+	quantity.value=0;
+	quantity.id=bookObj.id;
 	
 	cart_button.id = bookObj.id;
 	cart_button.innerHTML='Ajouter au panier';
@@ -72,6 +80,12 @@ books.forEach((bookObj) => {
 
     // Add price To book
     book.appendChild(price);
+
+	// Add quantity field To quantity container
+	quantity_container.appendChild(quantity);	
+	
+	// Add quantity field To book
+	book.appendChild(quantity_container);	
 	
 	// Add cart button To book
 	book.appendChild(cart_button);

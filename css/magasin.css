@@ -21,3 +21,7 @@ ul.books li {
 ul.books li img {
     width: 150px;
 }
+
+.books input[type=number]::-webkit-inner-spin-button {
+    opacity: 1
+}
