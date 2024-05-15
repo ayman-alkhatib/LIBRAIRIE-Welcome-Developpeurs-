@@ -74,12 +74,12 @@ footer {
     align-items: center; */
 }
 
-.form-row {
-    /* text-align: center; */
-    /* display: flex;  */
-    /* flex-direction: column; */
-    /* flex-wrap: wrap;  */
-}
+/* .form-row {
+    text-align: center;
+    display: flex; 
+    flex-direction: column;
+    flex-wrap: wrap; 
+} */
 
 .form-row input[type="text"],
 .form-row input[type="email"] {
@@ -102,10 +102,10 @@ footer {
     margin-bottom: 10px;
 }
 
-.contact-row {
-    /* display: flex; */
-    /* justify-content: space-between; */
-}
+/* .contact-row {
+    display: flex;
+    justify-content: space-between;
+} */
 
 .form-row button {
     background-color: #795548;
