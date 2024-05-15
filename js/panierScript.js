@@ -4,7 +4,6 @@ books.forEach((bookObj) => {
     let book = document.createElement("li")
     let btns = document.createElement("div")
 
-    let count = document.createElement("span")
 
 
     // start Book images
@@ -51,6 +50,9 @@ books.forEach((bookObj) => {
     let plusBtn = document.createElement("button")
     let moinsIcon = document.createElement("i")
     let moinsBtn = document.createElement("button")
+    let count = document.createElement("span")
+
+    count.append(bookObj.price)
 
     plusIcon.className = "fas fa-circle-plus"  // add icon class 
     moinsIcon.className = "fas fa-circle-minus" // add icon class 
@@ -62,6 +64,7 @@ books.forEach((bookObj) => {
     moinsBtn.id = bookObj.id // add book id to btns
 
     btns.appendChild(moinsBtn) // add moinsBtn to btns
+    btns.appendChild(count)
     btns.appendChild(plusBtn)  // add plusBtn to btns
 
     book.append(btns)  // add btns to book
