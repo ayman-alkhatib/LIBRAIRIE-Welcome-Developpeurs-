@@ -19,66 +19,72 @@
   </header>
   
   <article>
+  
+	 <section>
+        <h1>Bienvenue à la Librairie "Welcome Développeurs"</h1>
+
+        <h2>Sélection de livres</h2>
+        <ul class="books"></ul>
+
+<script src="./js/books.js"></script>		
+		
+
+<script>
+books.forEach((bookObj) => {
+    let myMainElement = document.querySelector(".books")
+    let book = document.createElement("li")
+    let img = document.createElement("img")
+    let title = document.createElement("h3");
+    let author = document.createElement("div")
+    let price = document.createElement("div");
+	let quantity = document.createElement("div");
+
+    // Add the link of the img
+    img.src = `./images/books-images/${bookObj.url}`
+
+    // Add book title
+    title.append(bookObj.title);
+
+    //add author name
+    author.append(bookObj.author)
+
+    // Add price Text
+    //price.append(`$${bookObj.price}`);
+	price.innerHTML='$'+bookObj.price+'<i class="fas fa-cart-shopping"></i>'; //ajout Romain : à mettre dans la page "magasin" 
+
+    // Add quantity (in basket)
+	//quantity.innerHTML='Qté : '+bookObj.quantity+' <i class="fas fa-circle-minus"></i> <i class="fas fa-circle-plus"></i>'; 
+
+
+    // Add img to book
+    book.append(img)
+
+    // Add title To book
+    book.appendChild(title);
+
+    // Add price To book
+    book.appendChild(price);
+
+    // Add quantity To book
+    book.appendChild(quantity);
+
+    // Add author to book
+    book.appendChild(author)
+    // Add id to book bookObj
+    book.id = bookObj.id;
+
+    myMainElement.appendChild(book)
+
+})
+
+</script>
+
+
+		
+		
+		
+    </section>
 	
-    <section id="services" class="services-section"> 
-	  <h1>ELLE FAIT DES TRUCS SUPERS !</h1>
-	  <div class="services"> 
-		<div class="service-container">
-			<div class="services-item">
-				<div class="service-img-container">
-					<img src="images/fork-and-knife-silhouette.svg"/>
-				</div>
-				<h2>Mettre la table</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur elit. Reprehendit provident nam officiis ex harum, dolor sit dicta mius fugit, debitis.</p>
-			</div>
-		</div>
-		<div class="service-container">
-			<div class="services-item">
-				<div class="service-img-container">
-					<img src="images/bed.svg"/>
-				</div>
-				<h2>Faire le lit</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur elit. Reprehendit provident nam officiis ex harum, dolor sit dicta mius fugit, debitis.</p>
-			</div>
-		</div>
-		<div class="service-container">
-			<div class="services-item">
-				<div class="service-img-container">
-					<img src="images/fire-symbol.svg"/>
-				</div>
-				<h2>Allumer le feu</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur elit. Reprehendit provident nam officiis ex harum, dolor sit dicta mius fugit, debitis.</p>
-			</div>
-		</div>
-		<div class="service-container">
-			<div class="services-item">
-				<div class="service-img-container">
-					<img src="images/plant-leaf-with-white-details.svg"/>
-				</div>
-				<h2>Ramasser les feuilles</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur elit. Reprehendit provident nam officiis ex harum, dolor sit dicta mius fugit, debitis.</p>
-			</div>
-		</div>
-		<div class="service-container">
-			<div class="services-item">
-				<div class="service-img-container">
-					<img src="images/umbrella-black-silhouette.svg"/>
-				</div>
-				<h2>Protéger de la pluie</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur elit. Reprehendit provident nam officiis ex harum, dolor sit dicta mius fugit, debitis.</p>
-			</div>
-		</div>
-		<div class="service-container">
-			<div class="services-item">
-				<div class="service-img-container">
-					<img src="images/dollar-symbol.svg"/>
-				</div>
-				<h2>Vider votre compte</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur elit. Reprehendit provident nam officiis ex harum, dolor sit dicta mius fugit, debitis.</p>
-			</div>
-		</div>
-	  </div>
-    </section> 
 	
 	
   </article>
