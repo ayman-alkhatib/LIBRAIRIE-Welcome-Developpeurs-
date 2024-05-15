@@ -5,10 +5,12 @@ books.forEach((bookObj) => {
     let title = document.createElement("h3");
     let author = document.createElement("div")
     let price = document.createElement("div");
+    let btns = document.createElement("div")
+    let plusIcon = document.createElement("i")
+    let plusBtn = document.createElement("button")
+    let moinsIcon = document.createElement("i")
+    let moinsBtn = document.createElement("button")
 
-    let btn = document.createElement("button")
-
-    btn.id = bookObj.id
 
     // Add the link of the img
     img.src = `../images/books-images/${bookObj.url}`
@@ -22,6 +24,18 @@ books.forEach((bookObj) => {
     // Add price Text
     price.append(`$${bookObj.price}`);
 
+    // add icon class 
+    plusIcon.className = "fas fa-circle-plus"
+
+    // add icon class 
+    moinsIcon.className = "fas fa-circle-minus"
+
+    // add plusBtn icon 
+    plusBtn.append(plusIcon)
+
+    // add moinsBtn icon 
+    moinsBtn.append(moinsIcon)
+
     // Add img to book
     book.append(img)
 
@@ -31,12 +45,20 @@ books.forEach((bookObj) => {
     // Add price To book
     book.appendChild(price);
 
-
     // Add author to book
     book.appendChild(author)
+
+    // add moinsBtn to btns
+    btns.appendChild(moinsBtn)
+
+    // add plusBtn to btns
+    btns.appendChild(plusBtn)
+
+    // add btns to book
+    book.append(btns)
+
     // Add id to book bookObj
     book.id = bookObj.id;
 
     myMainElement.appendChild(book)
-
 })
