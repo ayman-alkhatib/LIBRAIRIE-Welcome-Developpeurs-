@@ -60,7 +60,7 @@ const books = [
         id: 8,
         title: "The Lord of the Rings",
         author: "J.R.R. Tolkien",
-        price: 15.90,
+        price: 15.95,
         url: "the_lord-of-the-rings.png"
     },
     {

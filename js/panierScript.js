@@ -1,22 +1,11 @@
 let booksId = [0, 1, 4, 6]
 let count = 0
+
+let checkoutbtn = document.querySelector(".checkout")
+
 putInPanier(booksId, count)
-function handlePlusFn() {
-    let count = document.getElementById(`C-${this.id}`) // get the count element
-    let price = document.querySelector("li")
 
-    if (+count.textContent < 10) {
-        count.textContent++
-    }
-}
-function handleMoinsFn() {
-    let count = document.getElementById(`C-${this.id}`) // get the count element
-
-    if (+count.textContent > 0) {
-        count.textContent--
-
-    }
-}
+checkoutbtn.onclick = handleCheckout
 
 function putInPanier(booksId, bookCount) {
     booksId.map((id) => books[id]).forEach((bookObj) => {
@@ -67,6 +56,8 @@ function putInPanier(booksId, bookCount) {
         price.append(`$${bookObj.price}`) // Add price Text
 
         price.className = "price"         // Ass class to the price
+
+        price.setAttribute("data-price", bookObj.price) // add the price to the element
 
         info.appendChild(price); // Add price To info
 
@@ -125,5 +116,39 @@ function putInPanier(booksId, bookCount) {
 
 }
 
+function handlePlusFn() {
+    let count = document.getElementById(`C-${this.id}`) // get the count element
+
+    if (+count.textContent < 10) {
+        count.textContent++
+    }
+}
+function handleMoinsFn() {
+    let count = document.getElementById(`C-${this.id}`) // get the count element
+
+    if (+count.textContent > 0) {
+        count.textContent--
+
+    }
+}
+function handleCheckout() {
+    let total = 0
+    let prices = document.querySelectorAll(".price")
+    let counts = document.querySelectorAll(".main-section .info div span")
+    let cartTotal = document.querySelector(".cart-total span")
+
+    // sum of the prices
+    for (let i = 0; i < prices.length; i++) {
+        total += +prices[i].getAttribute("data-price") * +counts[i].textContent
+    }
+
+
+    cartTotal.textContent = total.toFixed(2)
+    if (total < 50) cartTotal.style = "color:green;"
+    if (total > 50 && total < 75) cartTotal.style = "color:orange;"
+    if (total > 75) cartTotal.style = "color:red;"
+
+
+}
 
 
