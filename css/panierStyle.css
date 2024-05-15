@@ -37,7 +37,18 @@
 
 .main-section ul li i {
     color: var(--main-color);
+    font-size: 22px;
+}
+
+.main-section .checkout {
+    background-color: var(--main-color);
+    padding: 20px;
+    color: #FFFFFF;
     font-size: 20px;
+    margin: 70px auto;
+    width: 50%;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
 /* end main-section */
