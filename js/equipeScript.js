@@ -1,5 +1,6 @@
 function editEquipier (btn, name, poste, description){
-    document.getElementById(btn).onclick = function() {
+    let bouton = document.getElementById(btn);
+    bouton.addEventListener('click', function() {
         // Saisir les nouveaux détails
         let nouveauNom = prompt("Entrez le nouveau nom :");
         let nouveauPoste = prompt("Entrez le nouveau poste :");
@@ -17,7 +18,7 @@ function editEquipier (btn, name, poste, description){
             // Afficher un message si des détails valides n'ont pas été entrés
             alert("Veuillez entrer des détails valides pour la personne.");
         }
-    };
+    });
 }
 
 editEquipier("paige-btn-edit", "paige-name", "paige-poste", "paige-description");
@@ -54,10 +55,11 @@ form.addEventListener('submit', function(event) {
     `;
 
     // Sélection de la section de l'équipe dans le DOM
-    const equipeSection = document.querySelector('.equipe-contenu');
+    const equipeContenu = document.querySelector('.equipe-contenu');
 
     // Insertion du nouveau bloc dans la section de l'équipe
-    equipeSection.insertAdjacentHTML('beforeend', newMemberHTML); //'beforeend' : Juste à l'intérieur de l'element , après son dernier enfant.
+    equipeContenu.innerHTML += newMemberHTML;
+
   
 
     // Réinitialisation du formulaire après soumission
