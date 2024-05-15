@@ -1,4 +1,5 @@
-document.getElementById("edit-text-name").onclick = function() {
+function modifierEquipe
+document.getElementById("edit-tex-name").onclick = function() {
     // Saisir les nouveaux détails
     let nouveauNom = prompt("Entrez le nouveau nom :");
     let nouveauPoste = prompt("Entrez le nouveau poste :");
