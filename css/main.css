@@ -127,3 +127,12 @@ header .container a {
 }
 
 /* End nav */
+/* start landing */
+.landing {
+    width: 100%;
+    height: 500px;
+    background-image: url("../images/books-images/landing.jpg");
+    background-size: cover;
+}
+
+/* end landing */
