@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+﻿﻿<!DOCTYPE html>
 <html lang="fr">
   <head>
     <meta charset="UTF-8"/>
@@ -23,45 +23,49 @@
   
 	 <section>
         <h1>Bienvenue à la Librairie "Welcome Développeurs"</h1>
+		<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. </div>
 
         <h2>Sélection de livres</h2>
-        <ul class="books"></ul>
+        <ul class="books">
+		
+		
+		</ul>
 
-<script src="./data.js"></script>		
+<script src="data.js"></script>		
 		
 
 <script>
 books.forEach((bookObj) => {
-    let myMainElement = document.querySelector(".books")
-    let book = document.createElement("li")
-    let img = document.createElement("img")
+    let myMainElement = document.querySelector(".books");
+    let book = document.createElement("li");
+    let img = document.createElement("img");
     let title = document.createElement("h3");
-    let author = document.createElement("div")
+    let author = document.createElement("div");
     let price = document.createElement("div");
-	let cart = document.createElement("div");
+	//let cart = document.createElement("div");
 
     // Add the link of the img
-    img.src = `./images/books-images/${bookObj.url}`
+    img.src = `./images/books-images/${bookObj.url}`;
 
     // Add book title
     title.append(bookObj.title);
 
     //add author name
-    author.append(bookObj.author)
+    author.append(bookObj.author);
 
     // Add price Text
     //price.append(`$${bookObj.price}`);
 	//price.innerHTML='$'+bookObj.price+'<i class="fas fa-cart-shopping"></i>'; 
 	price.innerHTML=bookObj.price+' €'; 
 	
-	cart.innerHTML='<button type="button">Ajouter au panier</button>'; 
+	//cart.innerHTML='<button type="button">Ajouter au panier</button>'; 
 
     // Add quantity (in basket)
 	//quantity.innerHTML='Qté : '+bookObj.quantity+' <i class="fas fa-circle-minus"></i> <i class="fas fa-circle-plus"></i>'; 
 
 
     // Add img to book
-    book.append(img)
+    book.append(img);
 
     // Add title To book
     book.appendChild(title);
@@ -73,11 +77,11 @@ books.forEach((bookObj) => {
     book.appendChild(quantity);
 
     // Add author to book
-    book.appendChild(author)
+    book.appendChild(author);
     // Add id to book bookObj
     book.id = bookObj.id;
 
-    myMainElement.appendChild(book)
+    myMainElement.appendChild(book);
 
 })
 
