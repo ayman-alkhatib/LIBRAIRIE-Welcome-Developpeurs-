@@ -1,90 +1,6 @@
-
-.a-propos {
-    top: 52px;
-    left: 0;
-    height: 658px;
-    color: #FFFFFF;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+h1, p, h2 {
     text-align: center;
 }
-.a-propos-contenu {
-    /*border: 1px solid whitesmoke;*/
-    display: flex;
-    position: absolute;
-    flex-direction: column;
-    justify-content: center;
-}
-
-
-.a-propos-boutons {
-    border-top: 1px solid whitesmoke;
-
-    margin-top: 15px;
-    padding-top: 20px;
-    font-size: 18px;
-    font-family: "OpenSans", sans-serif;
-    width: 392px;
-    display: flex;
-    justify-content: space-around;
-}
-
-.a-propos-boutons button {
-    width: 112px;
-    height: 46px;
-}
-
-button img {
-    padding-right: 10px;
-    vertical-align: middle;
-}
-
-.a-propos-contenu p {
-    font-size: 24px;
-    margin-bottom: 15px;
-}
-
-.services img {
-    background-color: #DD5555;
-}
-
-.services {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-}
-
-.services-contenu {
-    /*border: 1px solid black;*/
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-bottom: 46px;
-    max-width: 1400px; /*bloque largeur à partir de 1400px*/
-    margin-inline: auto; /*agit sur paramètre droite et gauche de margin*/
-    
-}
-
-.services-contenu li {
-    /*border: 1px solid black; */
-    width: 358px;
-    height: 266px;
-    display: flex;
-    flex-direction: column;
-    margin-left: 16px;
-    margin-right: 16px;
-}
-
-.services-contenu img {
-    width: 120px;
-    height: 120px;
-    border-radius: 60px;
-    margin-left: 119px;
-    object-fit: none;
-}
-
 .equipe {
     display: flex;
     flex-direction: column;
@@ -150,17 +66,18 @@ button img {
 footer {
     margin-top: 63px;
     height: 476px;
-    background-color: #DD5555;
-    color: #FFFFFF;
+    /* background-color: #DD5555;
+    color: #FFFFFF; */
     /* display: flex;
     flex-direction: column;
     align-items: center; */
 }
 
 .form-row {
-    display: flex;
+    text-align: center;
+    /* display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
+    flex-wrap: wrap; */
 }
 
 .form-row input[type="text"],
@@ -168,7 +85,7 @@ footer {
     width: 358px;
     height: 32px;
     background-color: #FFFFFF;
-    border: 1px solid #FFFFFF;
+    /* border: 1px solid #FFFFFF; */
     border-radius: 2px;
     margin-top: 10px;
     margin-bottom: 20px;
@@ -177,7 +94,7 @@ footer {
 
 .form-row textarea {
     font-family: "Open Sans", sans-serif;
-    width: 748px;
+    width: 358px;
     height: 112px;
     resize: none;
     margin-top: 10px;
