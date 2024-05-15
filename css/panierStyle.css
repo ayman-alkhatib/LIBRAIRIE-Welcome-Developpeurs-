@@ -4,37 +4,11 @@ body {
     margin: 0;
 }
 
-/* Start nav */
-header {
-    padding: 20px;
-    background-color: #DD5555;
-    color: #FFFFFF;
-}
-
-header .container {
-    display: flex;
-    align-items: center;
-}
-
-header .container ul {
-    display: flex;
-    gap: 10px;
-    font-size: 14px;
-    list-style: none;
-}
-
-@media (max-width: 485px) {
-    header .container ul {
-        font-size: 10px;
-    }
-}
-
-/* End nav */
 
 .landing {
     width: 100%;
-    height: 600px;
-    background-image: url("../images/books-images/pexels-pixabay-207662.jpg");
+    height: 500px;
+    background-image: url("../images/books-images/landing.jpg");
     background-size: cover;
 }
 
@@ -50,7 +24,7 @@ header .container ul {
     gap: 20px;
 }
 
-ul li {
+.main-section li {
     width: 200px;
     display: flex;
     flex-direction: column;
@@ -58,6 +32,6 @@ ul li {
     align-items: center;
 }
 
-ul li img {
+.main-section li img {
     width: 150px;
 }

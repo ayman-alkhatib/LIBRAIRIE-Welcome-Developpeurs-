@@ -6,8 +6,12 @@ books.forEach((bookObj) => {
     let author = document.createElement("div")
     let price = document.createElement("div");
 
+    let btn = document.createElement("button")
+
+    btn.id = bookObj.id
+
     // Add the link of the img
-    img.src = `./images/books-images/${bookObj.url}`
+    img.src = `../images/books-images/${bookObj.url}`
 
     // Add book title
     title.append(bookObj.title);
