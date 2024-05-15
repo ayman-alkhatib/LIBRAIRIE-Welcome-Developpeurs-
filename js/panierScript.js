@@ -9,14 +9,12 @@ checkoutbtn.onclick = handleCheckout
 
 function putInPanier(booksId, bookCount) {
     booksId.map((id) => books[id]).forEach((bookObj) => {
+
         // create element html
         let myMainElement = document.querySelector(".books")
         let book = document.createElement("li")
         let info = document.createElement("div")
-
-
-
-
+        let subtotal = document.createElement("div")
 
         // start Book images
 
@@ -101,16 +99,22 @@ function putInPanier(booksId, bookCount) {
 
         // end book btn
 
-        // Add info class 
-
+        // Add info class
         info.className = "info"
 
         // Add info to book
         book.appendChild(info)
+
         // Add id to book bookObj
         book.id = bookObj.id;
 
-        // add book to html ul
+        // add class to subtotal 
+        subtotal.className = "sub-total"
+
+        // add subtotal to book
+        book.append(subtotal)
+
+        // add book to html-ul
         myMainElement.appendChild(book)
     })
 
@@ -118,9 +122,11 @@ function putInPanier(booksId, bookCount) {
 
 function handlePlusFn() {
     let count = document.getElementById(`C-${this.id}`) // get the count element
-
     if (+count.textContent < 10) {
         count.textContent++
+    }
+    if (+count.textContent > 0) {
+        updateSubTotal()
     }
 }
 function handleMoinsFn() {
@@ -139,6 +145,7 @@ function handleCheckout() {
 
     // sum of the prices
     for (let i = 0; i < prices.length; i++) {
+        updateSubTotal(+prices[i].getAttribute("data-price") * +counts[i].textContent, i)
         total += +prices[i].getAttribute("data-price") * +counts[i].textContent
     }
 
@@ -151,4 +158,9 @@ function handleCheckout() {
 
 }
 
+
+function updateSubTotal(sub, index) {
+    let subtotals = document.querySelectorAll(".sub-total")
+    subtotals[index] = sub
+}
 
