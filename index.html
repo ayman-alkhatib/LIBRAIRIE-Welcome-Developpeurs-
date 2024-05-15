@@ -58,7 +58,7 @@ books.forEach((bookObj) => {
     price.append(`$${bookObj.price}`);
 	
 	cart_button.id = bookObj.id;
-	cart.innerHTML='Ajouter au panier';
+	cart_button.innerHTML='Ajouter au panier';
 	//'<button type="button" onclick="document.cookie=&quot;lastname=;expires=Thu, 01 Jan 1970&quot;">Delete Cookie 2</button>';
 
     // Add img to book
@@ -74,7 +74,7 @@ books.forEach((bookObj) => {
     book.appendChild(price);
 	
 	// Add cart button To book
-	book.appendChild(cart);
+	book.appendChild(cart_button);
 
 
     // Add id to book bookObj
