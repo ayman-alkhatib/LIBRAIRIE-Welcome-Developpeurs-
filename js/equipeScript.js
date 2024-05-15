@@ -24,3 +24,41 @@ editEquipier("paige-btn-edit", "paige-name", "paige-poste", "paige-description")
 editEquipier("lex-btn-edit", "lex-name", "lex-poste", "lex-description");
 editEquipier("belle-btn-edit", "belle-name", "belle-poste", "belle-description");
 // editEquipier("ash-btn-edit", "ash-name", "ash-poste", "ash-description");
+
+
+
+// Sélection du formulaire dans le DOM
+const form = document.querySelector('.contact-form');
+
+// Écoute de l'événement de soumission du formulaire
+form.addEventListener('submit', function(event) {
+    // Empêche le comportement par défaut de soumettre le formulaire
+    event.preventDefault();
+
+    // Récupération des valeurs des champs du formulaire
+    const fullName = document.getElementById('full-name').value;
+    const poste = document.getElementById('poste').value;
+    const description = document.getElementById('description').value;
+
+    // Création d'un nouveau bloc HTML avec les données du nouveau membre
+    const newMemberHTML = `
+        <div class="equipier">
+            <div class="equipier-photo">
+            <img src="images/equipe-images/owl.jpg" alt="owl-photo" id="owl-photo" />
+            </div>
+            <h2>${fullName}</h2>
+            <h3>${poste}</h3>
+            <p>${description}</p>
+            <button>Modifier</button>
+        </div>
+    `;
+
+    // Sélection de la section de l'équipe dans le DOM
+    const equipeSection = document.querySelector('.equipe-contenu');
+
+    // Insérez le nouveau bloc dans la section de l'équipe
+    equipeSection.insertAdjacentHTML('beforeend', newMemberHTML);
+
+    // Réinitialisation du formulaire après soumission
+    form.reset();
+});
