@@ -7,10 +7,10 @@
 .main-section ul {
     list-style: none;
     display: flex;
-    flex-direction: column;
     flex-wrap: wrap;
     gap: 20px;
     align-items: flex-start;
+    margin-top: 30px;
 }
 
 .main-section li {
@@ -24,6 +24,11 @@
     width: 250px;
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
+}
+
+.main-section li .info .btns {
+    align-self: center;
 }
 
 .main-section li img {
@@ -42,6 +47,12 @@
 
 .main-section .cart-total {
     font-size: 25px;
+    margin: 30px;
+}
+
+.main-section .ch-vi {
+    display: flex;
+    justify-content: center;
 }
 
 .main-section .checkout {
@@ -49,10 +60,21 @@
     padding: 20px;
     color: #FFFFFF;
     font-size: 20px;
-    margin: 70px auto;
     width: 50%;
     border-radius: 10px;
     cursor: pointer;
+
+}
+
+.vider {
+    background-color: var(--main-color);
+    padding: 20px;
+    color: #FFFFFF;
+    font-size: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 200px;
+    margin-right: 70px;
 }
 
 /* end main-section */

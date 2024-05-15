@@ -94,6 +94,7 @@ function putInPanier(booksId, bookCount) {
         btns.appendChild(moinsBtn) // add moinsBtn to btns
         btns.appendChild(count)
         btns.appendChild(plusBtn)  // add plusBtn to btns
+        btns.className = "btns"
 
         info.append(btns)  // add btns to info
 
@@ -111,8 +112,12 @@ function putInPanier(booksId, bookCount) {
         // add class to subtotal 
         subtotal.className = "sub-total"
 
+        // Add book-id to subtotal
+        subtotal.id = `ST-${bookObj.id}`
+
+
         // add subtotal to book
-        book.append(subtotal)
+        info.append(subtotal)
 
         // add book to html-ul
         myMainElement.appendChild(book)
@@ -125,9 +130,8 @@ function handlePlusFn() {
     if (+count.textContent < 10) {
         count.textContent++
     }
-    if (+count.textContent > 0) {
-        updateSubTotal()
-    }
+    updateSubTotal(+count.textContent, this.id)
+
 }
 function handleMoinsFn() {
     let count = document.getElementById(`C-${this.id}`) // get the count element
@@ -136,6 +140,8 @@ function handleMoinsFn() {
         count.textContent--
 
     }
+    updateSubTotal(+count.textContent, this.id)
+
 }
 function handleCheckout() {
     let total = 0
@@ -145,10 +151,8 @@ function handleCheckout() {
 
     // sum of the prices
     for (let i = 0; i < prices.length; i++) {
-        updateSubTotal(+prices[i].getAttribute("data-price") * +counts[i].textContent, i)
         total += +prices[i].getAttribute("data-price") * +counts[i].textContent
     }
-
 
     cartTotal.textContent = total.toFixed(2)
     if (total < 50) cartTotal.style = "color:green;"
@@ -158,9 +162,14 @@ function handleCheckout() {
 
 }
 
+function updateSubTotal(count, id) {
+    let subtotal = document.querySelector(`.sub-total#ST-${id}`)
 
-function updateSubTotal(sub, index) {
-    let subtotals = document.querySelectorAll(".sub-total")
-    subtotals[index] = sub
+    if (count > 0) {
+        subtotal.textContent = `sous-total: $${(count * books[id].price).toFixed(2)}`
+    } else {
+        subtotal.textContent = ""
+    }
+
 }
 
