@@ -7,18 +7,23 @@
   <link rel="stylesheet" href="./css/styles.css" />
   <link rel="stylesheet" href="./css/all.css">
   <link rel="stylesheet" href="./css/magasin.css">
+  <link rel="stylesheet" href="./css/main.css">
+
 </head>
 
 <body class="page">
   <header>
-    <nav>
-      <ul class="menu">
-        <li>LIBRAIRIE "Welcome Développeurs"</li>
-        <li><a href="./index.html"><i class="fas fa-store"></i></a></li>
-        <li><a href="./panier.html"><i class="fas fa-cart-shopping"></i></a></li>
-        <li><a href="./equipe.html"><i class="fas fa-people-group"></i></a></li>
-      </ul>
-    </nav>
+    <div class="container">
+      <nav>
+        <img src="./images/books-images/logo.png" alt="">
+        <div>LIBRAIRIE "Welcome Développeurs"</div>
+        <ul>
+          <li><a href="./index.html">Le Panier <i class="fas fa-store"></i></a></li>
+          <li><a href="./panier.html">Le Magasin <i class="fas fa-cart-shopping"></i></li>
+          <li><a href="./equipe.html">L`équipe <i class="fas fa-people-group"></i></a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
   <article>
@@ -30,8 +35,10 @@
         semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum
         diam nisl sit amet erat. </div>
 
+
       <h2>Sélection de livres</h2>
       <ul class="books">
+
 
 
       </ul>
@@ -68,6 +75,7 @@
           quantity.type = "number";
           quantity.label = "quantité";
           quantity.value = 0;
+		  quantity.min = 0;
           quantity.id = bookObj.id;
 
           cart_button.id = bookObj.id;
