@@ -70,7 +70,6 @@ function putInPanier(booksId, bookCount) {
 
         // end book price
 
-
         // start book btn
         let btns = document.createElement("div")
 
