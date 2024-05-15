@@ -56,8 +56,9 @@ form.addEventListener('submit', function(event) {
     // Sélection de la section de l'équipe dans le DOM
     const equipeSection = document.querySelector('.equipe-contenu');
 
-    // Insérez le nouveau bloc dans la section de l'équipe
-    equipeSection.insertAdjacentHTML('beforeend', newMemberHTML);
+    // Insertion du nouveau bloc dans la section de l'équipe
+    equipeSection.insertAdjacentHTML('beforeend', newMemberHTML); //'beforeend' : Juste à l'intérieur de l'element , après son dernier enfant.
+  
 
     // Réinitialisation du formulaire après soumission
     form.reset();
