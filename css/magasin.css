@@ -23,7 +23,7 @@
 	font-weight: 700;
 }
 
-.magasin {
+body.magasin {
 	font-family: "OpenSans", sans-serif;
 	font-weight: 300;
 	font-size: 18px;
@@ -51,4 +51,16 @@ ul.books li img {
 
 .books input[type=number]::-webkit-inner-spin-button {
     opacity: 1
+}
+
+button.magasin {
+    background-color: var(--main-color);
+    /**padding: 20px;**/
+    color: #FFFFFF;
+    font-size: 18px;
+    /**margin: 70px auto;**/
+    width: 90%;
+    border-radius: 5px;
+	border:none;
+    cursor: pointer;
 }
