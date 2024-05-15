@@ -1,15 +1,17 @@
-export const books = [{
+// export 
+
+const books = [{
     id: 1,
     title: "The Great Gatsby",
     author: "F. Scott Fitzgerald",
-    price: 10.9,
-    url: "The_Great_Gatsby_Cover_1925_Retouched.jpg"
+    price: 10.99,
+    url: "The_Great_Gatsby_Cover_1925_Retouched.jpg",
 },
 {
     id: 2,
     title: "To Kill a Mockingbird",
     author: "Harper Lee",
-    price: "$12.50",
+    price: 12.59,
     url: "To_kill_a_Mockingbird.jpg"
 },
 {
@@ -23,7 +25,7 @@ export const books = [{
     id: 4,
     title: "The Catcher in the Rye",
     author: "J.D. Salinger",
-    price: 11.2,
+    price: 11.99,
     url: "The_Catcher_in_the_Rye.jpg"
 },
 {
@@ -58,7 +60,7 @@ export const books = [{
     id: 9,
     title: "The Hobbit",
     author: "J.R.R. Tolkien",
-    price: 9.50,
+    price: 9.59,
     url: "The_Hobbit.jpg"
 },
 {
