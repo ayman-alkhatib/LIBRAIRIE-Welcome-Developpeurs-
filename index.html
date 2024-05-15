@@ -59,7 +59,7 @@
           let img = document.createElement("img")
           let title = document.createElement("h3");
           let author = document.createElement("div")
-          let price = document.createElement("div");
+          let price = document.createElement("h3");
           let cart_button = document.createElement("button");
           let quantity_container = document.createElement("div");
           let quantity = document.createElement("input");
@@ -74,7 +74,9 @@
           author.append(bookObj.author)
 
           // Add price Text
-          price.append(`$${bookObj.price}`);
+		  
+           price.append(`$${bookObj.price}`)
+		  price.classList.add('prix_magasin');	
 
 
           quantity.type = "number";
@@ -82,6 +84,7 @@
           quantity.value = 0;
 		  quantity.min = 0;
           quantity.id = bookObj.id;
+		  quantity.classList.add('magasin');		
 
           cart_button.id = bookObj.id;
           cart_button.classList.add('magasin');		  
