@@ -40,6 +40,10 @@
     font-size: 22px;
 }
 
+.main-section .cart-total {
+    font-size: 25px;
+}
+
 .main-section .checkout {
     background-color: var(--main-color);
     padding: 20px;
