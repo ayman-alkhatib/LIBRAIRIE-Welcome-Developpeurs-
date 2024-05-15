@@ -2,6 +2,33 @@
     margin: 50px auto;
 }*/
 
+@font-face {
+	font-family: "OpenSans";
+	src: url("./font/OpenSans-Regular.ttf") format("truetype");
+	font-style: normal;
+	font-weight: 300;
+}
+
+@font-face {
+	font-family: "OpenSans";
+	src: url("./font/OpenSans-SemiBold.ttf") format("truetype");
+	font-style: normal;
+	font-weight: 500;
+}
+
+@font-face {
+	font-family: "OpenSans";
+	src: url("./font/OpenSans-Bold.ttf") format("truetype");
+	font-style: normal;
+	font-weight: 700;
+}
+
+.magasin {
+	font-family: "OpenSans", sans-serif;
+	font-weight: 300;
+	font-size: 18px;
+	line-height: 1.8em;
+}
 
 ul.books {
     list-style: none;
