@@ -22,8 +22,10 @@ function putInPanier(booksId, bookCount) {
     booksId.map((id) => books[id]).forEach((bookObj) => {
         // create element html
         let myMainElement = document.querySelector(".books")
-        let info = document.createElement("div")
         let book = document.createElement("li")
+        let info = document.createElement("div")
+
+
 
 
 
@@ -107,6 +109,10 @@ function putInPanier(booksId, bookCount) {
         info.append(btns)  // add btns to info
 
         // end book btn
+
+        // Add info class 
+
+        info.className = "info"
 
         // Add info to book
         book.appendChild(info)
