@@ -1,9 +1,9 @@
 function editEquipier (btn, name, poste, description){
     document.getElementById(btn).onclick = function() {
         // Saisir les nouveaux détails
-        var nouveauNom = prompt("Entrez le nouveau nom :");
-        var nouveauPoste = prompt("Entrez le nouveau poste :");
-        var nouvelleDescription = prompt("Entrez la nouvelle description :");
+        let nouveauNom = prompt("Entrez le nouveau nom :");
+        let nouveauPoste = prompt("Entrez le nouveau poste :");
+        let nouvelleDescription = prompt("Entrez la nouvelle description :");
 
         // Vérifier si l'utilisateur a entré des détails valides
         if (nouveauNom !== null && nouveauNom !== "" &&
