@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/all.css">
     <link rel="stylesheet" href="./css/main.css">
-    <link rel="stylesheet" href="./equipeStyle.css">
-    <script src="equipeScript.js" defer></script>
+    <link rel="stylesheet" href="./css/equipeStyle.css">
+    <link rel="stylesheet" href="./css/styles.css" />
+    <script src="./js/equipeScript.js" defer></script>
     <title>Equipe</title>
 </head>
 
@@ -15,7 +16,7 @@
     <header>
         <div class="container">
             <nav>
-                <img src="./images/books-images/logo.png" alt="">
+                <img src="./images/books-images/logo.png" alt="books-images">
                 <div>LIBRAIRIE "Welcome Développeurs"</div>
                 <ul>
                     <li><a href="./index.html">Le Panier <i class="fas fa-store"></i></a></li>
@@ -28,41 +29,38 @@
     <section class="equipe">
         <div class="equipe-titre">
             <h1><i class="fas fa-people-group"></i> L'EQUIPE</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                fugiat nulla pariatur.</p>
+            <p>Plongez dans l'univers hilarant de notre librairie en ligne, où les mots dansent et les livres ont la fâcheuse tendance à s'échapper des rayons pour jouer à cache-cache. Notre équipe est composée de génies excentriques qui transforment chaque clic en éclat de rire. Du gardien des grimoires, expert en détection de fautes de frappe, au maître des mots, capable de transformer chaque description de produit en comédie Shakespearienne, nous sommes là pour vous garantir une expérience littéraire aussi divertissante qu'un spectacle de clowns dans une bibliothèque. Bienvenue dans notre monde où même les pages les plus sérieuses finissent par se plier de rire !</p>
             <!-- <img src="images/equipe-images/team.jpg.png" alt="team"/> -->
         </div>
         <div class="equipe-contenu">
             <div class="equipier">
                 <div class="equipier-photo">
-                    <img src="images/equipe-images/avaone.jpg.png" alt="avaone" />
+                    <img src="images/equipe-images/canard.jpg" alt="avaone" />
                 </div>
-                <h2 id="tex-name">Tex Talign</h2>
-                <h3 id="tex-poste">Poste</h3>
-                <p id="tex-description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <button id="tex-btn-edit">Modifier</button>
+                <h2 id="paige-name">Paige Turner</h2>
+                <h3 id="paige-poste">Gardienne des Grimoires</h3>
+                <p id="paige-description">Paige est une passionnée de livres depuis sa plus tendre enfance. Elle peut repérer une faute de frappe à 100 mètres et a un sens de l'organisation aussi pointu que les angles d'un livre de mathématiques.</p>
+                <button id="paige-btn-edit">Modifier</button>
             </div>
             <div class="equipier">
                 <div class="equipier-photo">
-                    <img src="images/equipe-images/avatwo.jpg.png" alt="avatwo" />
+                    <img src="images/equipe-images/chien.jpg" alt="avatwo" />
                 </div>
-                <h2 id="marge-name">Marge Inn</h2>
-                <h3 id="marge-poste">Poste</h3>
-                <p id="marge-description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <button id="marge-btn-edit">Modifier</button>
+                <h2 id="lex-name">Lex Icon</h2>
+                <h3 id="lex-poste">Gourou des Graphismes</h3>
+                <p id="lex-description">Lex est l'artiste du groupe. Il manie les pixels et les polices de caractères comme un chef cuisinier manie ses épices. Il donne à chaque page web une touche de créativité qui fait briller les yeux de nos clients.</p>
+                <button id="lex-btn-edit">Modifier</button>
             </div>
             <div class="equipier">
                 <div class="equipier-photo">
-                    <img src="images/equipe-images/avathree.jpg.png" alt="avathree" />
+                    <img src="images/equipe-images/agneau.jpg" alt="avathree" />
                 </div>
-                <h2 id="isaac-name">Isaac Newton</h2>
-                <h3 id="isaac-poste">Poste</h3>
-                <p id="isaac-description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <button id="isaac-btn-edit">Modifier</button>
+                <h2 id="belle-name">Belle Bookworm</h2>
+                <h3 id="belle-poste">Maîtresse des Mots</h3>
+                <p id="belle-description">Belle est notre experte en contenu. Elle dévore les livres pour le petit-déjeuner et a la capacité étrange de citer Shakespeare dans n'importe quelle situation. Avec elle, chaque description de produit est une œuvre littéraire en soi.</p>
+                <button id="belle-btn-edit">Modifier</button>
             </div>
-            <div class="equipier">
+            <!-- <div class="equipier">
                 <div class="equipier-photo">
                     <img src="images/equipe-images/avafour.jpg.png" alt="avafour" />
                 </div>
@@ -70,25 +68,37 @@
                 <h3 id="ash-poste">Poste</h3>
                 <p id="ash-description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                 <button id="ash-btn-edit">Modifier</button>
-            </div>
+            </div> -->
         </div>
     </section>
     <footer class="form">
         <h2>Ajoutez un membre</h2>
         <form action="" method="get" class="contact-form">
             <!-- <div class="contact-row"> -->
-            <div class="form-row">
-                <label for="full-name">Nom</label>
-                <input type="text" name="full-name" id="full-name">
-            </div>
-            <div class="form-row">
-                <label for="poste">Poste</label>
-                <input type="text" name="poste" id="poste" placeholder="joe@example.com">
-            </div>
+                <div class="form-row">
+                    <div>
+                        <label for="full-name">Nom</label>
+                    </div>
+                    <div>  
+                        <input type="text" name="full-name" id="full-name">
+                    </div> 
+                </div>
+                <div class="form-row">
+                    <div>  
+                        <label for="poste">Poste</label>
+                    </div>  
+                    <div>  
+                        <input type="text" name="poste" id="poste">
+                    </div>  
+                </div>
             <!-- </div> -->
             <div class="form-row">
-                <label for="description">Description</label>
-                <textarea name="description" id="description"></textarea>
+                <div>
+                    <label for="description">Description</label>
+                </div>
+                <div>
+                    <textarea name="description" id="description"></textarea>
+                </div>
             </div>
             <div class="form-row">
                 <button><img src="images/equipe-images/paper-plane.svg" alt="paper-plane">Envoyer</button>

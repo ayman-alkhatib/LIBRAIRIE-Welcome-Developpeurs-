@@ -42,13 +42,14 @@ h1, p, h2 {
 }
 
 .equipier button {
-    background-color: #DD5555;
+    background-color: #795548;
     color: #FFFFFF;
     width: 132px;
     height: 40px;
     border-radius: 10px;
     font-size: 18px;
-    margin-left: 54px;
+    margin-top: 20px;
+    /* margin-left: 54px; */
 }
 
 .equipier a {
@@ -57,7 +58,7 @@ h1, p, h2 {
 
 .equipier {
     margin-top: 64px;
-    display: flex;
+    /* display: flex; */
     flex-direction: column;
     text-align: center;
     justify-content: center;
@@ -66,18 +67,18 @@ h1, p, h2 {
 footer {
     margin-top: 63px;
     height: 476px;
-    /* background-color: #DD5555;
-    color: #FFFFFF; */
+    /* background-color: #DD5555; */
+    /* color: #FFFFFF; */ 
     /* display: flex;
     flex-direction: column;
     align-items: center; */
 }
 
 .form-row {
-    text-align: center;
-    /* display: flex;
-    flex-direction: column;
-    flex-wrap: wrap; */
+    /* text-align: center; */
+    /* display: flex;  */
+    /* flex-direction: column; */
+    /* flex-wrap: wrap;  */
 }
 
 .form-row input[type="text"],
@@ -89,7 +90,7 @@ footer {
     border-radius: 2px;
     margin-top: 10px;
     margin-bottom: 20px;
-
+    
 }
 
 .form-row textarea {
@@ -102,20 +103,27 @@ footer {
 }
 
 .contact-row {
-    display: flex;
-    justify-content: space-between;
+    /* display: flex; */
+    /* justify-content: space-between; */
 }
 
 .form-row button {
-    width: 123px;
-    height: 46px;
-    font-family: "Open Sans", sans-serif;
+    background-color: #795548;
+    color: #FFFFFF;
+    width: 132px;
+    height: 40px;
+    border-radius: 10px;
     font-size: 18px;
-    border: none;
-    border-radius: 2px;
-    margin-left: 625px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+    /* width: 123px; */
+    /* height: 46px; */
+    /* font-family: "Open Sans", sans-serif; */
+    /* font-size: 18px; */
+    /* border: none; */
+    /* border-radius: 2px; */
+    /* margin-left: 625px; */
+    /* display: flex; */
+    /* flex-wrap: wrap; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* vertical-align: middle; */
 }

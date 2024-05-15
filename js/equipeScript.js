@@ -20,7 +20,7 @@ function editEquipier (btn, name, poste, description){
     };
 }
 
-editEquipier("tex-btn-edit", "tex-name", "tex-poste", "tex-description");
-editEquipier("marge-btn-edit", "marge-name", "marge-poste", "marge-description");
-editEquipier("isaac-btn-edit", "isaac-name", "isaac-poste", "isaac-description");
-editEquipier("ash-btn-edit", "ash-name", "ash-poste", "ash-description");
+editEquipier("paige-btn-edit", "paige-name", "paige-poste", "paige-description");
+editEquipier("lex-btn-edit", "lex-name", "lex-poste", "lex-description");
+editEquipier("belle-btn-edit", "belle-name", "belle-poste", "belle-description");
+// editEquipier("ash-btn-edit", "ash-name", "ash-poste", "ash-description");
