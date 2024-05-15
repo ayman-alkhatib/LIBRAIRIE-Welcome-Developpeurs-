@@ -41,6 +41,7 @@ books.forEach((bookObj) => {
     let title = document.createElement("h3");
     let author = document.createElement("div")
     let price = document.createElement("div");
+	let cart = document.createElement("div");
 
     // Add the link of the img
     img.src = `./images/books-images/${bookObj.url}`
@@ -53,6 +54,9 @@ books.forEach((bookObj) => {
 
     // Add price Text
     price.append(`$${bookObj.price}`);
+	
+	cart.innerHTML='<button id="'+bookObj.id+'" type="button">Ajouter au panier (id '+bookObj.id+')</button>';
+	//'<button type="button" onclick="document.cookie=&quot;lastname=;expires=Thu, 01 Jan 1970&quot;">Delete Cookie 2</button>';
 
     // Add img to book
     book.append(img)
@@ -62,7 +66,9 @@ books.forEach((bookObj) => {
 
     // Add price To book
     book.appendChild(price);
-
+	
+	// Add cart button To book
+	book.appendChild(cart);
 
     // Add author to book
     book.appendChild(author)
