@@ -1,14 +1,16 @@
-﻿﻿<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Magasin</title>
-  <!--<link rel="stylesheet" href="./css/styles.css"> -->
+  <!--
+  <link rel="stylesheet" href="./css/styles.css">
+  -->
   <link rel="stylesheet" href="./css/all.css">
   <link rel="stylesheet" href="./css/magasin.css">
-  <link rel="stylesheet" href="./css/main.css"> <!-- doublons avec styles.css -->
+  <link rel="stylesheet" href="./css/main.css"> 
   <link rel="stylesheet" href="./css/panierStyle.css">
 </head>
 
@@ -41,11 +43,12 @@
 
 
       <h2>Sélection de livres</h2>
-      <ul class="books">
+      <ul class="books"></ul>
+
+    </section>
 
 
-
-      </ul>
+  </article>
 
       <script src="./js/data.js"></script>
 
@@ -60,8 +63,6 @@
           let cart_button = document.createElement("button");
           let quantity_container = document.createElement("div");
           let quantity = document.createElement("input");
-
-
 
           // Add the link of the img
           img.src = `./images/books-images/${bookObj.url}`
@@ -119,13 +120,6 @@
 
 
 
-
-
-    </section>
-
-
-
-  </article>
 
 </body>
 
