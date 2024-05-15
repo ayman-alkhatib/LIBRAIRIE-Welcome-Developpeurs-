@@ -5,6 +5,7 @@
     <title>Magasin</title>
 	<link rel="stylesheet" href="./css/styles.css"/>
 	<link rel="stylesheet" href="./css/all.css">
+	<link rel="stylesheet" href="./css/magasin.css">
   </head>
   <body class="page">
   <header>
@@ -26,7 +27,7 @@
         <h2>Sélection de livres</h2>
         <ul class="books"></ul>
 
-<script src="./js/books.js"></script>		
+<script src="./data.js"></script>		
 		
 
 <script>
@@ -37,7 +38,7 @@ books.forEach((bookObj) => {
     let title = document.createElement("h3");
     let author = document.createElement("div")
     let price = document.createElement("div");
-	let quantity = document.createElement("div");
+	let cart = document.createElement("div");
 
     // Add the link of the img
     img.src = `./images/books-images/${bookObj.url}`
@@ -50,7 +51,10 @@ books.forEach((bookObj) => {
 
     // Add price Text
     //price.append(`$${bookObj.price}`);
-	price.innerHTML='$'+bookObj.price+'<i class="fas fa-cart-shopping"></i>'; //ajout Romain : à mettre dans la page "magasin" 
+	//price.innerHTML='$'+bookObj.price+'<i class="fas fa-cart-shopping"></i>'; 
+	price.innerHTML=bookObj.price+' €'; 
+	
+	cart.innerHTML='<button type="button">Ajouter au panier</button>'; 
 
     // Add quantity (in basket)
 	//quantity.innerHTML='Qté : '+bookObj.quantity+' <i class="fas fa-circle-minus"></i> <i class="fas fa-circle-plus"></i>'; 

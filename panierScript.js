@@ -1,5 +1,3 @@
-import { books } from "./data.js"
-
 books.forEach((bookObj) => {
     let myMainElement = document.querySelector(".books")
     let book = document.createElement("li")
@@ -36,7 +34,5 @@ books.forEach((bookObj) => {
     book.id = bookObj.id;
 
     myMainElement.appendChild(book)
-
-
 
 })
