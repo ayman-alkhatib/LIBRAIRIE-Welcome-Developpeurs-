@@ -3,6 +3,8 @@ let count = 0
 
 let checkoutbtn = document.querySelector(".checkout")
 
+putInPanier(booksId, count)
+
 checkoutbtn.onclick = handleCheckout
 
 function putInPanier(booksId, bookCount) {
@@ -150,4 +152,3 @@ function handleCheckout() {
 }
 
 
-putInPanier(booksId, count)
