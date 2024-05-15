@@ -1,0 +1,128 @@
+/* Start Variables */
+
+:root {
+    --main-color: #795548;
+}
+
+/* End Variables */
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+}
+
+body {
+    text-align: center;
+    padding: 0;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 1.8em;
+}
+
+/* start container */
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Small */
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+
+/* Medium */
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+
+/* Large */
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+/* end container */
+
+/* font */
+
+@font-face {
+    font-family: "OpenSans";
+    src: url("./font/OpenSans-Regular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: "OpenSans";
+    src: url("./font/OpenSans-SemiBold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: "OpenSans";
+    src: url("./font/OpenSans-Bold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 700;
+}
+
+/* font */
+
+/* Start nav */
+header {
+    padding: 20px;
+    background-color: var(--main-color);
+    color: #FFFFFF;
+}
+
+header .container {
+    display: flex;
+    justify-content: center;
+}
+
+header .container nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .container nav img {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+header .container ul {
+    display: flex;
+    gap: 20px;
+    font-size: 15px;
+    list-style: none;
+}
+
+header .container a {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+@media (max-width: 485px) {
+    header .container ul {
+        font-size: 10px;
+    }
+}
+
+/* End nav */

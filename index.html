@@ -1,115 +1,122 @@
 ﻿﻿<!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8"/>
-    <title>Magasin</title>
-	<link rel="stylesheet" href="./css/styles.css"/>
-	<link rel="stylesheet" href="./css/all.css">
-	<link rel="stylesheet" href="./css/magasin.css">
-  </head>
-  <body class="page">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Magasin</title>
+  <link rel="stylesheet" href="./css/styles.css" />
+  <link rel="stylesheet" href="./css/all.css">
+  <link rel="stylesheet" href="./css/magasin.css">
+</head>
+
+<body class="page">
   <header>
     <nav>
-		<ul class="menu">
-			<li>LIBRAIRIE "Welcome Développeurs"</li>
-			<li><a href="./index.html"><i class="fas fa-store"></i></a></li>
-			<li><a href="./panier.html"><i class="fas fa-cart-shopping"></i></a></li>
-			<li><a href="./equipe.html"><i class="fas fa-people-group"></i></a></li>
-		</ul>
-	</nav>
+      <ul class="menu">
+        <li>LIBRAIRIE "Welcome Développeurs"</li>
+        <li><a href="./index.html"><i class="fas fa-store"></i></a></li>
+        <li><a href="./panier.html"><i class="fas fa-cart-shopping"></i></a></li>
+        <li><a href="./equipe.html"><i class="fas fa-people-group"></i></a></li>
+      </ul>
+    </nav>
   </header>
-  
+
   <article>
-  
-	 <section>
-        <h1>Bienvenue à la Librairie "Welcome Développeurs"</h1>
-		<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. </div>
 
-        <h2>Sélection de livres</h2>
-        <ul class="books">
-		
-		
-		</ul>
-
-<script src="data.js"></script>		
-		
-<script>
-books.forEach((bookObj) => {
-    let myMainElement = document.querySelector(".books")
-    let book = document.createElement("li")
-    let img = document.createElement("img")
-    let title = document.createElement("h3");
-    let author = document.createElement("div")
-    let price = document.createElement("div");
-	let cart_button = document.createElement("button");
-	let quantity_container = document.createElement("div");
-	let quantity = document.createElement("input");
-	
-	
-
-    // Add the link of the img
-    img.src = `./images/books-images/${bookObj.url}`
-
-    // Add book title
-    title.append(bookObj.title);
-
-    //add author name
-    author.append(bookObj.author)
-
-    // Add price Text
-    price.append(`$${bookObj.price}`);
-	
-	
-	quantity.type="number";
-	quantity.label="quantité";
-	quantity.value=0;
-	quantity.min=0;
-	quantity.id=bookObj.id;
-	
-	cart_button.id = bookObj.id;
-	cart_button.innerHTML='Ajouter au panier';
-	//'<button type="button" onclick="document.cookie=&quot;lastname=;expires=Thu, 01 Jan 1970&quot;">Delete Cookie 2</button>';
-
-    // Add img to book
-    book.append(img)
-
-    // Add title To book
-    book.appendChild(title);
-
-    // Add author to book
-    book.appendChild(author)	
-
-    // Add price To book
-    book.appendChild(price);
-
-	// Add quantity field To quantity container
-	quantity_container.appendChild(quantity);	
-	
-	// Add quantity field To book
-	book.appendChild(quantity_container);	
-	
-	// Add cart button To book
-	book.appendChild(cart_button);
+    <section>
+      <h1>Bienvenue à la Librairie "Welcome Développeurs"</h1>
+      <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim
+        sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a,
+        semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum
+        diam nisl sit amet erat. </div>
 
 
-    // Add id to book bookObj
-    book.id = bookObj.id;
-
-    myMainElement.appendChild(book)
-
-})
-
-</script>	
+      <h2>Sélection de livres</h2>
+      <ul class="books">
 
 
-		
-		
-		
+
+      </ul>
+
+      <script src="./js/data.js"></script>
+
+      <script>
+        books.forEach((bookObj) => {
+          let myMainElement = document.querySelector(".books")
+          let book = document.createElement("li")
+          let img = document.createElement("img")
+          let title = document.createElement("h3");
+          let author = document.createElement("div")
+          let price = document.createElement("div");
+          let cart_button = document.createElement("button");
+          let quantity_container = document.createElement("div");
+          let quantity = document.createElement("input");
+
+
+
+          // Add the link of the img
+          img.src = `./images/books-images/${bookObj.url}`
+
+          // Add book title
+          title.append(bookObj.title);
+
+          //add author name
+          author.append(bookObj.author)
+
+          // Add price Text
+          price.append(`$${bookObj.price}`);
+
+
+          quantity.type = "number";
+          quantity.label = "quantité";
+          quantity.value = 0;
+          quantity.id = bookObj.id;
+
+          cart_button.id = bookObj.id;
+          cart_button.innerHTML = 'Ajouter au panier';
+          //'<button type="button" onclick="document.cookie=&quot;lastname=;expires=Thu, 01 Jan 1970&quot;">Delete Cookie 2</button>';
+
+          // Add img to book
+          book.append(img)
+
+          // Add title To book
+          book.appendChild(title);
+
+          // Add author to book
+          book.appendChild(author)
+
+          // Add price To book
+          book.appendChild(price);
+
+          // Add quantity field To quantity container
+          quantity_container.appendChild(quantity);
+
+          // Add quantity field To book
+          book.appendChild(quantity_container);
+
+          // Add cart button To book
+          book.appendChild(cart_button);
+
+
+          // Add id to book bookObj
+          book.id = bookObj.id;
+
+          myMainElement.appendChild(book)
+
+        })
+
+      </script>
+
+
+
+
+
     </section>
-	
-	
-	
+
+
+
   </article>
-  
-  </body>
+
+</body>
+
 </html>
