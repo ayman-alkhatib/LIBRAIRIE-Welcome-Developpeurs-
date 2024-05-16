@@ -2,10 +2,13 @@ let booksId = [0, 1, 4, 6]
 let count = 0
 
 let checkoutbtn = document.querySelector(".checkout")
+let vider = document.querySelector(".vider")
+
+// add onclick fn
+vider.onclick = handleVider
+checkoutbtn.onclick = handleCheckout
 
 putInPanier(booksId, count)
-
-checkoutbtn.onclick = handleCheckout
 
 function putInPanier(booksId, bookCount) {
     booksId.map((id) => books[id]).forEach((bookObj) => {
@@ -20,7 +23,7 @@ function putInPanier(booksId, bookCount) {
 
         let img = document.createElement("img")
 
-        img.src = `../images/books-images/${bookObj.url}` // Add the link of the img
+        img.src = `./images/books-images/${bookObj.url}` // Add the link of the img
 
         book.append(img) // Add img to book
 
@@ -160,6 +163,15 @@ function handleCheckout() {
     if (total > 75) cartTotal.style = "color:red;"
 
 
+}
+function handleVider() {
+    let counts = document.querySelectorAll(".main-section .info div span")
+    let cartTotal = document.querySelector(".cart-total span")
+
+    for (let i = 0; i < counts.length; i++) {
+        counts[i].textContent = 0
+        updateSubTotal()
+    }
 }
 
 function updateSubTotal(count, id) {
