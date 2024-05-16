@@ -1,5 +1,6 @@
-let booksId = [0, 1, 4, 6]
+let booksId = [0, 1, 4, 6, 5]
 let count = 0
+
 
 let checkoutbtn = document.querySelector(".checkout")
 let vider = document.querySelector(".vider")
@@ -165,13 +166,19 @@ function handleCheckout() {
 
 }
 function handleVider() {
-    let counts = document.querySelectorAll(".main-section .info div span")
-    let cartTotal = document.querySelector(".cart-total span")
+    if (confirm("are you sure").valueOf(true)) {
+        let counts = document.querySelectorAll(".main-section .info div span")
+        let subtotals = document.querySelectorAll(".sub-total")
+        let cartTotal = document.querySelector(".cart-total span")
 
-    for (let i = 0; i < counts.length; i++) {
-        counts[i].textContent = 0
-        updateSubTotal()
+        for (let i = 0; i < counts.length; i++) {
+            counts[i].textContent = 0
+            subtotals[i].textContent = ""
+
+        }
+        cartTotal.textContent = 0
     }
+
 }
 
 function updateSubTotal(count, id) {
@@ -184,4 +191,3 @@ function updateSubTotal(count, id) {
     }
 
 }
-
