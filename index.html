@@ -139,6 +139,8 @@
 		
 		
 			let count = document.querySelector(`#C-${this.id}`) //récupère quantité saisie dans le input id C-...
+			
+
 			if (parseInt(count.value) ==1) {
 				alert(`${count.value} ajouté au panier`);
 			} else {
@@ -148,14 +150,20 @@
 			
 			let old_count=localStorage.getItem(`qty_book_${this.id}`);
 
-			//console.log(old_count)
 			
 			localStorage.setItem(`qty_book_${this.id}`,parseInt(old_count)+parseInt(count.value))
-
+			
+			//if (test_items_count(count.value,this.id)){ // test si nb items < ou egal à 15
+				list_cart()
+			
+			//};
+			//test_items_count(count.value,this.id)
 						
 			//remise à zéro quantité dans le input
 			document.querySelector(`#C-${this.id}`).value = 0
-			list_cart()
+
+			
+
 			
 			
 		}
@@ -202,7 +210,9 @@
 					//cart_suppr.id = bookObj.id;
 					cart_suppr.classList.add('panier');		  
 					cart_suppr.innerHTML = 'supprimer';
-					//cart_suppr.onclick=delete_item(`qty_book_${bookObj.id}`);
+					cart_suppr.addEventListener("click",(e)=>{
+						delete_item(`qty_book_${bookObj.id}`)
+					});
 
 					          
 					cart_img.src = `./images/books-images/${bookObj.url}` // Add the link of the img
@@ -211,7 +221,7 @@
 					cart_quantity.append(localStorage.getItem(`qty_book_${bookObj.id}`))// Add book qty
 					cart_amount.append(amount);
 					
-					cart_list.append(cart_img)
+					cart_list.append(cart_img);
 					cart_list.appendChild(cart_title);
 					cart_list.appendChild(cart_price);
 					cart_list.appendChild(cart_quantity);
@@ -234,12 +244,37 @@
 
 
 		function delete_item(var_id){
-			console.log(var_id)
-			
-			//localStorage.setItem(var_id,0);
-			list_cart()
-			
+			if(confirm("Supprimer produit ?")) {
+				//console.log(var_id);
+				localStorage.setItem(var_id,0);
+				list_cart();
+			}
 		}
+		
+		function test_items_count(var_item_qty,var_id){
+			
+			let items_count = parseInt(var_item_qty)
+			console.log(items_count);
+			
+			books.forEach((bookObj) => {
+				if (bookObj.id!=var_id) {
+					items_count=items_count+parseInt(localStorage.getItem(`qty_book_${bookObj.id}`))
+				}
+			})
+			
+			
+			/*if (items_count<16){
+				return true;
+				
+			} else {
+				return false;
+			
+			}*/
+			
+			
+			
+		}		
+		
 		
 		
       </script>

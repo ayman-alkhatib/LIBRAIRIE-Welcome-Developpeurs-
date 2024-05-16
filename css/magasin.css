@@ -86,3 +86,7 @@ img.panier_item {
 	height: 100px;
 
 }
+
+li.panier {
+	list-style-type: none;
+}
