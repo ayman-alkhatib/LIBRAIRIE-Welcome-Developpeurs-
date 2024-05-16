@@ -34,21 +34,25 @@
 
   <article>
 
-    <section>
-      <h1>Bienvenue à la Librairie "Welcome Développeurs"</h1>
+    <section class="bienvenue">
+      <h2 class="magasin">Bienvenue à la Librairie "Welcome Développeurs"</h2>
       <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim
         sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a,
         semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum
         diam nisl sit amet erat. </div>
-
-
-      <h2>Sélection de livres</h2>
+    </section>
+	
+    <section class="sélection">	
+      <h2 class="magasin">Sélection de livres</h2>
       <ul class="books"></ul>
-	  
-      <h2 class="montant_panier">Panier</h2>
+    </section>
+	
+    <section class="section_panier">		  
+      <div class="container_panier">
+			<h2 class="montant_panier magasin"></h2>
+			<button class="vider_panier" style="visibility:hidden"></button>
+      </div>
       <ul class="panier"></ul>	  
-	  
-
     </section>
 
 
@@ -71,9 +75,11 @@
 
           // Add the link of the img
           img.src = `./images/books-images/${bookObj.url}`
+		  img.classList.add('magasin_item');	
 
           // Add book title
           title.append(bookObj.title);
+		  title.classList.add('item_title');
 
           //add author name
           author.append(bookObj.author)
@@ -140,31 +146,35 @@
 		
 			let count = document.querySelector(`#C-${this.id}`) //récupère quantité saisie dans le input id C-...
 			
-
-			if (parseInt(count.value) ==1) {
-				alert(`${count.value} ajouté au panier`);
-			} else {
-				alert(`${count.value} ajoutés au panier`);
-			}
+			let total_items_count = parseInt(count.value)+func_items_count()
+			
+			if (total_items_count<16){ // test si nb items < ou egal à 15
+			
+				if (parseInt(count.value) ==1) {
+					alert(`${count.value} ajouté au panier`);
+				} else {
+					alert(`${count.value} ajoutés au panier`);
+				}
 
 			
-			let old_count=localStorage.getItem(`qty_book_${this.id}`);
+				let old_count=localStorage.getItem(`qty_book_${this.id}`);
 
 			
-			localStorage.setItem(`qty_book_${this.id}`,parseInt(old_count)+parseInt(count.value))
+				localStorage.setItem(`qty_book_${this.id}`,parseInt(old_count)+parseInt(count.value))
 			
-			//if (test_items_count(count.value,this.id)){ // test si nb items < ou egal à 15
+			
 				list_cart()
 			
-			//};
-			//test_items_count(count.value,this.id)
+			} else {
+			
+				alert("quantité maximale autorisée (15) dépassée");
+			
+			}
+			
 						
 			//remise à zéro quantité dans le input
 			document.querySelector(`#C-${this.id}`).value = 0
 
-			
-
-			
 			
 		}
 
@@ -196,7 +206,6 @@
 					
 					let qty = localStorage.getItem(`qty_book_${bookObj.id}`);
 					let amount = `$${(bookObj.price*qty).toFixed(2)}`;
-					//console.log(amount)
 					
 					montant_panier = montant_panier+bookObj.price*qty
 					
@@ -206,8 +215,7 @@
 					cart_quantity.classList.add('panier_item');	
 					cart_amount.classList.add('panier_item');
 					
-					
-					//cart_suppr.id = bookObj.id;
+
 					cart_suppr.classList.add('panier');		  
 					cart_suppr.innerHTML = 'supprimer';
 					cart_suppr.addEventListener("click",(e)=>{
@@ -218,7 +226,7 @@
 					cart_img.src = `./images/books-images/${bookObj.url}` // Add the link of the img
 					cart_title.append(bookObj.title); // Add book title
 					cart_price.append(`$${bookObj.price}`) // Add book price
-					cart_quantity.append(localStorage.getItem(`qty_book_${bookObj.id}`))// Add book qty
+					cart_quantity.append("x "+localStorage.getItem(`qty_book_${bookObj.id}`))// Add book qty
 					cart_amount.append(amount);
 					
 					cart_list.append(cart_img);
@@ -235,51 +243,55 @@
 				
 			})
 			
-			titre_panier = document.querySelector(".montant_panier")
-			//console.log(montant_panier)
-			titre_panier.innerHTML = `Panier ($${montant_panier.toFixed(2)})` 
+			let titre_panier = document.querySelector(".montant_panier")
+
+			titre_panier.innerHTML = `Panier ($${montant_panier.toFixed(2)})`
+
+			let bouton_vider_panier = document.querySelector(".vider_panier");
 			
+			bouton_vider_panier.innerHTML = 'vider';
+			bouton_vider_panier.style.visibility = "visible";
+			bouton_vider_panier.onclick = empty_cart
+
 		
 		}
 
 
 		function delete_item(var_id){
 			if(confirm("Supprimer produit ?")) {
-				//console.log(var_id);
+
 				localStorage.setItem(var_id,0);
 				list_cart();
 			}
 		}
-		
-		function test_items_count(var_item_qty,var_id){
-			
-			let items_count = parseInt(var_item_qty)
-			console.log(items_count);
-			
+
+		function empty_cart(){
 			books.forEach((bookObj) => {
-				if (bookObj.id!=var_id) {
-					items_count=items_count+parseInt(localStorage.getItem(`qty_book_${bookObj.id}`))
-				}
+				localStorage.setItem(`qty_book_${bookObj.id}`,0)
 			})
 			
 			
-			/*if (items_count<16){
-				return true;
-				
-			} else {
-				return false;
 			
-			}*/
+			list_cart();
 			
+		}
+		
+
+
+		function func_items_count(){
 			
+			let items_count = 0;
 			
-		}		
+			books.forEach((bookObj) => {
+					items_count=items_count+parseInt(localStorage.getItem(`qty_book_${bookObj.id}`))
+			})
+			
+			return items_count
+		}	
 		
 		
-		
+
       </script>
-
-
 
 
 </body>
