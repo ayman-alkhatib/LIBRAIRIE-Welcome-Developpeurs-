@@ -91,8 +91,10 @@
           cart_button.classList.add('magasin');		  
           cart_button.innerHTML = 'Ajouter au panier';
 		  cart_button.onclick = add2cart
+		  //cart_button.onclick = init_qty(bookObj.id)		  
+		  localStorage.setItem(`qty_book_${bookObj.id}`,0) //met les qté à zéro dans le local storage
 		  
-          //'<button type="button" onclick="document.cookie=&quot;lastname=;expires=Thu, 01 Jan 1970&quot;">Delete Cookie 2</button>';
+          
 
           // Add img to book
           book.append(img)
@@ -122,18 +124,45 @@
           myMainElement.appendChild(book)
 
         })
-		let booksAjouter = []
+		//let booksAjouter = []
+
+		//function init_cart(){
+		
+		
+		
+		//}
+
 		
 		function add2cart(){
-		let count = document.querySelector(`#C-${this.id}`)
-		booksAjouter.push({
-		bookId:this.id,
-		bookCount:count.value}
-		)
-		 localStorage.setItem("books_counts",booksAjouter)
-		console.log(booksAjouter)
-		
+			let count = document.querySelector(`#C-${this.id}`)
+	
+			if (parseInt(count.value) ==1) {
+				alert(`${count.value} ajouté au panier`);
+			} else {
+				alert(`${count.value} ajoutés au panier`);
+			}
+
+			
+			let old_count=localStorage.getItem(`qty_book_${this.id}`);
+
+			console.log(old_count)
+			
+			localStorage.setItem(`qty_book_${this.id}`,parseInt(old_count)+parseInt(count.value))
+
+			
+			
+			//remise à zéro quantité dans le input
+			document.querySelector(`#C-${this.id}`).value = 0
+			
+			
 		}
+
+		
+		
+		
+		
+		
+		
       </script>
 
 
