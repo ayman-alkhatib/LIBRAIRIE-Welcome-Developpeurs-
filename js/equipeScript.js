@@ -31,6 +31,7 @@ function editEquipier (btnEdit, name, poste, description, photo){
     });
 }
 
+//Appel de la fonction pour chaque équiper
 editEquipier("paige-btn-edit", "paige-name", "paige-poste", "paige-description", "paige-photo");
 editEquipier("lex-btn-edit", "lex-name", "lex-poste", "lex-description", "lex-photo");
 editEquipier("belle-btn-edit", "belle-name", "belle-poste", "belle-description", "belle-photo");
@@ -51,6 +52,7 @@ function supprEquipier (btnSuppr, idMembre) {
     });
 }
 
+//Appel de la fonction pour chaque équiper
 supprEquipier("paige-btn-suppr", "paige");
 supprEquipier("lex-btn-suppr", "lex");
 supprEquipier("belle-btn-suppr", "belle");
