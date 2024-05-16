@@ -1,131 +1,174 @@
 let booksId = [0, 1, 4, 6, 5]
-let count = 0
 
+let panier = [{
+    bookId: 0,
+    count: 2
+}, {
+    bookId: 3,
+    count: 1
+},
+{
+    bookId: 4,
+    count: 1
+},
+{
+    bookId: 5,
+    count: 3
+},
+{
+    bookId: 1,
+    count: 1
+}]
 
+panier.forEach(bookPanier => {
+    putInPanier(books[bookPanier.bookId], bookPanier.count)
+    updateSubTotal(bookPanier.bookId, bookPanier.count)
+})
+
+// start add onclick fn
 let checkoutbtn = document.querySelector(".checkout")
 let vider = document.querySelector(".vider")
 
-// add onclick fn
+
 vider.onclick = handleVider
 checkoutbtn.onclick = handleCheckout
 
-putInPanier(booksId, count)
+// end add onclick fn
+
+
 
 function putInPanier(booksId, bookCount) {
-    booksId.map((id) => books[id]).forEach((bookObj) => {
 
-        // create element html
-        let myMainElement = document.querySelector(".books")
-        let book = document.createElement("li")
-        let info = document.createElement("div")
-        let subtotal = document.createElement("div")
+    let myMainElement = document.querySelector(".books")
+    let book = document.createElement("li")
 
-        // start Book images
+    book.id = `li-${booksId.id}` // Add id to book booksId
 
-        let img = document.createElement("img")
+    addBookImg(book, booksId) // add Book images to book-li
 
-        img.src = `./images/books-images/${bookObj.url}` // Add the link of the img
+    createInfo(book, booksId, bookCount)
 
-        book.append(img) // Add img to book
+    myMainElement.appendChild(book) // put the element in html
 
-        // end Book images
+}
+function createInfo(html, book, bookCount) {
 
-        // start book title
+    let info = document.createElement("div")
 
-        let title = document.createElement("h3");
+    info.className = "info" // Add info class
 
-        title.append(bookObj.title);    // Add book title
+    addBookTitle(info, book) // add title to info element
 
-        title.className = "title"       // Add class to the title
+    addBookAuther(info, book) // add author to info element
 
-        info.appendChild(title);        // Add title To info    
+    addBookPrice(info, book) // add price to info element
 
-        // end book title
+    addBookBtn(info, book, bookCount) // add btn to info elemnet
 
-        // start book author
-        let author = document.createElement("div")
+    addDeleteBtn(info, book)
 
-        author.append(bookObj.author) //add author name
+    addSubTotal(info, book, bookCount) // add subTotal to info element
 
-        info.appendChild(author) // Add author to info
+    html.appendChild(info)  // Add info to book-li element
 
-        // end book author
+}
+function addBookImg(html, book) {
+    let img = document.createElement("img")
 
-        // start book price
+    img.src = `./images/books-images/${book.url}` // Add the link of the img
 
-        let price = document.createElement("div");
+    html.append(img) // Add img to book
 
-        price.append(`$${bookObj.price}`) // Add price Text
+}
+function addBookTitle(html, book) {
 
-        price.className = "price"         // Ass class to the price
+    let title = document.createElement("h3");
 
-        price.setAttribute("data-price", bookObj.price) // add the price to the element
+    title.append(book.title);    // Add book title
 
-        info.appendChild(price); // Add price To info
+    title.className = "title"    // Add class to the title
 
-        // end book price
+    html.appendChild(title);     // Add title To info    
 
-        // start book btn
-        let btns = document.createElement("div")
+}
+function addBookAuther(html, book) {
+    let author = document.createElement("div")
 
-        let plusBtn = document.createElement("button")
-        let moinsBtn = document.createElement("button")
+    author.append(book.author) //add author name
 
-        let plusIcon = document.createElement("i")
-        let moinsIcon = document.createElement("i")
+    html.appendChild(author) // Add author to info
+}
+function addBookPrice(html, book) {
 
-        let count = document.createElement("span")
+    let price = document.createElement("div");
 
+    price.append(`$${book.price}`) // Add the price
 
-        count.append(bookCount)
-        count.id = `C-${bookObj.id}`
+    price.className = "price"      // Ass class to the price
 
-        plusIcon.className = "fas fa-circle-plus"  // add icon class 
-        moinsIcon.className = "fas fa-circle-minus" // add icon class 
+    price.setAttribute("data-price", book.price) // add the price in data attr
 
-        plusBtn.append(plusIcon)  // add plusBtn icon 
-        moinsBtn.append(moinsIcon) // add moinsBtn icon 
+    html.appendChild(price); // Add price To info
+}
+function addBookBtn(html, book, bookCount) {
+    let btns = document.createElement("div")
 
-        plusBtn.className = "plus-btn" // add class  to btns
-        moinsBtn.className = "moins-btn"// add class to btns
+    let plusBtn = document.createElement("button")
+    let moinsBtn = document.createElement("button")
 
-        plusBtn.id = bookObj.id // add book-id to btns
-        moinsBtn.id = bookObj.id// add book-id to btns
+    let plusIcon = document.createElement("i")
+    let moinsIcon = document.createElement("i")
 
-        plusBtn.onclick = handlePlusFn
-        moinsBtn.onclick = handleMoinsFn
-
-        btns.appendChild(moinsBtn) // add moinsBtn to btns
-        btns.appendChild(count)
-        btns.appendChild(plusBtn)  // add plusBtn to btns
-        btns.className = "btns"
-
-        info.append(btns)  // add btns to info
-
-        // end book btn
-
-        // Add info class
-        info.className = "info"
-
-        // Add info to book
-        book.appendChild(info)
-
-        // Add id to book bookObj
-        book.id = bookObj.id;
-
-        // add class to subtotal 
-        subtotal.className = "sub-total"
-
-        // Add book-id to subtotal
-        subtotal.id = `ST-${bookObj.id}`
+    let count = document.createElement("span")
 
 
-        // add subtotal to book
-        info.append(subtotal)
+    count.append(bookCount)
+    count.id = `C-${book.id}`
 
-        // add book to html-ul
-        myMainElement.appendChild(book)
-    })
+    plusIcon.className = "fas fa-circle-plus"  // add icon class 
+    moinsIcon.className = "fas fa-circle-minus" // add icon class 
+
+    plusBtn.append(plusIcon)  // add plusBtn icon 
+    moinsBtn.append(moinsIcon) // add moinsBtn icon 
+
+    plusBtn.className = "plus-btn" // add class  to btns
+    moinsBtn.className = "moins-btn"// add class to btns
+
+    plusBtn.id = book.id // add book-id to btns
+    moinsBtn.id = book.id// add book-id to btns
+
+    plusBtn.onclick = handlePlusFn
+    moinsBtn.onclick = handleMoinsFn
+
+    btns.appendChild(moinsBtn) // add moinsBtn to btns
+    btns.appendChild(count)
+    btns.appendChild(plusBtn)  // add plusBtn to btns
+    btns.className = "btns"
+
+    html.append(btns)  // add btns to info
+
+}
+function addSubTotal(html, book) {
+    let subtotal = document.createElement("div")
+
+    subtotal.className = "sub-total" // add class to subtotal
+
+    subtotal.id = `ST-${book.id}`    // Add book-id to subtotal
+
+    html.append(subtotal) // add subtotal to book
+}
+function addDeleteBtn(html, book) {
+    let deleteBtn = document.createElement("button")
+
+    deleteBtn.className = "delete-btn" // add class to the delete btn
+
+    deleteBtn.id = book.id
+
+    deleteBtn.textContent = "supprimé" // add text to the btn 
+
+    deleteBtn.onclick = handleDeleteBtn
+
+    html.append(deleteBtn) // add btn to info element
 
 }
 
@@ -134,7 +177,7 @@ function handlePlusFn() {
     if (+count.textContent < 10) {
         count.textContent++
     }
-    updateSubTotal(+count.textContent, this.id)
+    updateSubTotal(this.id, +count.textContent)
 
 }
 function handleMoinsFn() {
@@ -144,7 +187,7 @@ function handleMoinsFn() {
         count.textContent--
 
     }
-    updateSubTotal(+count.textContent, this.id)
+    updateSubTotal(this.id, +count.textContent)
 
 }
 function handleCheckout() {
@@ -166,7 +209,7 @@ function handleCheckout() {
 
 }
 function handleVider() {
-    if (confirm("are you sure").valueOf(true)) {
+    if (confirm("Voulez-vous vider le panier ?")) {
         let counts = document.querySelectorAll(".main-section .info div span")
         let subtotals = document.querySelectorAll(".sub-total")
         let cartTotal = document.querySelector(".cart-total span")
@@ -174,14 +217,21 @@ function handleVider() {
         for (let i = 0; i < counts.length; i++) {
             counts[i].textContent = 0
             subtotals[i].textContent = ""
-
         }
         cartTotal.textContent = 0
     }
 
 }
+function handleDeleteBtn() {
+    if (confirm("Voulez-vous supprimer l'élément ?")) {
+        let book = document.getElementById(`li-${this.id}`)
+        console.log(book)
 
-function updateSubTotal(count, id) {
+        book.remove()
+    }
+}
+
+function updateSubTotal(id, count) {
     let subtotal = document.querySelector(`.sub-total#ST-${id}`)
 
     if (count > 0) {
@@ -191,3 +241,5 @@ function updateSubTotal(count, id) {
     }
 
 }
+
+
