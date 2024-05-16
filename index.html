@@ -44,6 +44,10 @@
 
       <h2>Sélection de livres</h2>
       <ul class="books"></ul>
+	  
+      <h2 class="montant_panier">Panier</h2>
+      <ul class="panier"></ul>	  
+	  
 
     </section>
 
@@ -76,7 +80,7 @@
 
           // Add price Text
 		  
-           price.append(`$${bookObj.price}`)
+          price.append(`$${bookObj.price}`)
 		  price.classList.add('prix_magasin');	
 
 
@@ -90,7 +94,11 @@
           cart_button.id = bookObj.id;
           cart_button.classList.add('magasin');		  
           cart_button.innerHTML = 'Ajouter au panier';
-		  cart_button.onclick = add2cart
+		  cart_button.onclick=add2cart
+				
+		  //cart_button.onclick = update_cart
+		  //cart_button.onclick = list_cart
+		  
 		  //cart_button.onclick = init_qty(bookObj.id)		  
 		  localStorage.setItem(`qty_book_${bookObj.id}`,0) //met les qté à zéro dans le local storage
 		  
@@ -124,18 +132,13 @@
           myMainElement.appendChild(book)
 
         })
-		//let booksAjouter = []
 
-		//function init_cart(){
-		
-		
-		
-		//}
 
 		
 		function add2cart(){
-			let count = document.querySelector(`#C-${this.id}`)
-	
+		
+		
+			let count = document.querySelector(`#C-${this.id}`) //récupère quantité saisie dans le input id C-...
 			if (parseInt(count.value) ==1) {
 				alert(`${count.value} ajouté au panier`);
 			} else {
@@ -145,22 +148,98 @@
 			
 			let old_count=localStorage.getItem(`qty_book_${this.id}`);
 
-			console.log(old_count)
+			//console.log(old_count)
 			
 			localStorage.setItem(`qty_book_${this.id}`,parseInt(old_count)+parseInt(count.value))
 
-			
-			
+						
 			//remise à zéro quantité dans le input
 			document.querySelector(`#C-${this.id}`).value = 0
+			list_cart()
 			
 			
 		}
 
+		function list_cart(){
 		
+			let cart_MainElement = document.querySelector(".panier")
+			cart_MainElement.innerHTML=""
+			
+			let montant_panier = 0;
+			let nb_item = 0;
+			
+			books.forEach((bookObj) => {
+			
+				
+				
+				let cart_list = document.createElement("li")
+				
+				cart_list.classList.add('panier');	
+				
+				if (localStorage.getItem(`qty_book_${bookObj.id}`)!=0) {
+									
+					let cart_img = document.createElement("img")
+					let cart_title = document.createElement("h4");
+					let cart_price = document.createElement("div");
+					let cart_quantity = document.createElement("div");
+					let cart_amount = document.createElement("h4");
+					let cart_suppr = document.createElement("button");
+
+					
+					let qty = localStorage.getItem(`qty_book_${bookObj.id}`);
+					let amount = `$${(bookObj.price*qty).toFixed(2)}`;
+					//console.log(amount)
+					
+					montant_panier = montant_panier+bookObj.price*qty
+					
+					cart_img.classList.add('panier_item');	
+					cart_title.classList.add('panier_item');	
+					cart_price.classList.add('panier_item');	
+					cart_quantity.classList.add('panier_item');	
+					cart_amount.classList.add('panier_item');
+					
+					
+					//cart_suppr.id = bookObj.id;
+					cart_suppr.classList.add('panier');		  
+					cart_suppr.innerHTML = 'supprimer';
+					//cart_suppr.onclick=delete_item(`qty_book_${bookObj.id}`);
+
+					          
+					cart_img.src = `./images/books-images/${bookObj.url}` // Add the link of the img
+					cart_title.append(bookObj.title); // Add book title
+					cart_price.append(`$${bookObj.price}`) // Add book price
+					cart_quantity.append(localStorage.getItem(`qty_book_${bookObj.id}`))// Add book qty
+					cart_amount.append(amount);
+					
+					cart_list.append(cart_img)
+					cart_list.appendChild(cart_title);
+					cart_list.appendChild(cart_price);
+					cart_list.appendChild(cart_quantity);
+					cart_list.appendChild(cart_amount);
+					cart_list.appendChild(cart_suppr);
+					
+					cart_MainElement.appendChild(cart_list)
+
+			
+				}
+				
+			})
+			
+			titre_panier = document.querySelector(".montant_panier")
+			//console.log(montant_panier)
+			titre_panier.innerHTML = `Panier ($${montant_panier.toFixed(2)})` 
+			
 		
-		
-		
+		}
+
+
+		function delete_item(var_id){
+			console.log(var_id)
+			
+			//localStorage.setItem(var_id,0);
+			list_cart()
+			
+		}
 		
 		
       </script>

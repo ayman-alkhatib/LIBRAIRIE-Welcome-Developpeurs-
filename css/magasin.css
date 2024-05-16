@@ -75,3 +75,14 @@ input.magasin {
 h3.prix_magasin{
 	font-size: 20px;
 }
+.panier_item {
+	display: inline;
+	vertical-align: middle;
+	margin:10px;
+
+}
+
+img.panier_item {
+	height: 100px;
+
+}
