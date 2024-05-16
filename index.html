@@ -266,10 +266,11 @@
 		}
 
 		function empty_cart(){
-			books.forEach((bookObj) => {
-				localStorage.setItem(`qty_book_${bookObj.id}`,0)
-			})
-			
+			if(confirm("Vider le panier ?")) {
+				books.forEach((bookObj) => {
+					localStorage.setItem(`qty_book_${bookObj.id}`,0)
+				})
+			}
 			
 			
 			list_cart();
