@@ -1,49 +1,75 @@
 let booksId = [0, 1, 4, 6, 5]
-let count = 0
 
-putInPanier(booksId, count)
+let panier = [{
+    bookId: 0,
+    count: 2
+}, {
+    bookId: 3,
+    count: 1
+},
+{
+    bookId: 4,
+    count: 1
+},
+{
+    bookId: 5,
+    count: 3
+},
+{
+    bookId: 1,
+    count: 1
+}]
 
-// add onclick fn
+panier.forEach(bookPanier => {
+    putInPanier(books[bookPanier.bookId], bookPanier.count)
+    updateSubTotal(bookPanier.bookId, bookPanier.count)
+})
+
+// start add onclick fn
 let checkoutbtn = document.querySelector(".checkout")
 let vider = document.querySelector(".vider")
+
 
 vider.onclick = handleVider
 checkoutbtn.onclick = handleCheckout
 
+// end add onclick fn
+
+
 
 function putInPanier(booksId, bookCount) {
-    booksId.map((id) => books[id]).forEach((bookObj) => {
-        let myMainElement = document.querySelector(".books")
-        let book = document.createElement("li")
 
-        book.id = bookObj.id // Add id to book bookObj
+    let myMainElement = document.querySelector(".books")
+    let book = document.createElement("li")
 
-        addBookImg(book, bookObj) // add Book images to book-li
+    book.id = `li-${booksId.id}` // Add id to book booksId
 
-        createInfo(book, bookObj, bookCount)
+    addBookImg(book, booksId) // add Book images to book-li
 
-        myMainElement.appendChild(book) // put the element in html
-    })
+    createInfo(book, booksId, bookCount)
+
+    myMainElement.appendChild(book) // put the element in html
+
 }
-function createInfo(html, bookObj, bookCount) {
+function createInfo(html, book, bookCount) {
 
     let info = document.createElement("div")
 
     info.className = "info" // Add info class
 
-    addBookTitle(info, bookObj) // add title to info element
+    addBookTitle(info, book) // add title to info element
 
-    addBookAuther(info, bookObj) // add author to info element
+    addBookAuther(info, book) // add author to info element
 
-    addBookPrice(info, bookObj) // add price to info element
+    addBookPrice(info, book) // add price to info element
 
-    addBookBtn(info, bookObj, bookCount) // add btn to info elemnet
+    addBookBtn(info, book, bookCount) // add btn to info elemnet
 
-    addSubTotal(info, bookObj) // add subTotal to info element
+    addDeleteBtn(info, book)
 
-    addDeleteBtn(info, bookObj)
+    addSubTotal(info, book, bookCount) // add subTotal to info element
+
     html.appendChild(info)  // Add info to book-li element
-
 
 }
 function addBookImg(html, book) {
@@ -133,8 +159,16 @@ function addSubTotal(html, book) {
 }
 function addDeleteBtn(html, book) {
     let deleteBtn = document.createElement("button")
-    deleteBtn.textContent = "supprimé"
-    html.append(deleteBtn)
+
+    deleteBtn.className = "delete-btn" // add class to the delete btn
+
+    deleteBtn.id = book.id
+
+    deleteBtn.textContent = "supprimé" // add text to the btn 
+
+    deleteBtn.onclick = handleDeleteBtn
+
+    html.append(deleteBtn) // add btn to info element
 
 }
 
@@ -143,7 +177,7 @@ function handlePlusFn() {
     if (+count.textContent < 10) {
         count.textContent++
     }
-    updateSubTotal(+count.textContent, this.id)
+    updateSubTotal(this.id, +count.textContent)
 
 }
 function handleMoinsFn() {
@@ -153,7 +187,7 @@ function handleMoinsFn() {
         count.textContent--
 
     }
-    updateSubTotal(+count.textContent, this.id)
+    updateSubTotal(this.id, +count.textContent)
 
 }
 function handleCheckout() {
@@ -175,7 +209,7 @@ function handleCheckout() {
 
 }
 function handleVider() {
-    if (confirm("Voulez-vous vider le panier ?").valueOf(true)) {
+    if (confirm("Voulez-vous vider le panier ?")) {
         let counts = document.querySelectorAll(".main-section .info div span")
         let subtotals = document.querySelectorAll(".sub-total")
         let cartTotal = document.querySelector(".cart-total span")
@@ -188,8 +222,16 @@ function handleVider() {
     }
 
 }
+function handleDeleteBtn() {
+    if (confirm("Voulez-vous supprimer l'élément ?")) {
+        let book = document.getElementById(`li-${this.id}`)
+        console.log(book)
 
-function updateSubTotal(count, id) {
+        book.remove()
+    }
+}
+
+function updateSubTotal(id, count) {
     let subtotal = document.querySelector(`.sub-total#ST-${id}`)
 
     if (count > 0) {
