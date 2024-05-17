@@ -1,3 +1,4 @@
+//-------------------------------------------------------------------------------------------------------------
 //MODIFIER UN MEMBRE
 function editEquipier (btnEdit, name, poste, description, photo){
     const bouton = document.getElementById(btnEdit);
@@ -36,6 +37,8 @@ editEquipier("paige-btn-edit", "paige-name", "paige-poste", "paige-description",
 editEquipier("lex-btn-edit", "lex-name", "lex-poste", "lex-description", "lex-photo");
 editEquipier("belle-btn-edit", "belle-name", "belle-poste", "belle-description", "belle-photo");
 
+
+//----------------------------------------------------------------------------------------------------------
 // SUPPRIMER UN MEMBRE
 function supprEquipier (btnSuppr, idMembre) {
     //Récupère le bouton
@@ -57,7 +60,7 @@ supprEquipier("paige-btn-suppr", "paige");
 supprEquipier("lex-btn-suppr", "lex");
 supprEquipier("belle-btn-suppr", "belle");
 
-
+//--------------------------------------------------------------------------------------------------------------
 //AJOUTER UN MEMBRE
 // Sélection du formulaire dans le DOM
 const form = document.querySelector('.contact-form');
@@ -81,7 +84,7 @@ form.addEventListener('submit', function(event) {
             </div>
             <h2 id="new-name">${fullName}</h2>
             <h3 id="new-poste">${poste}</h3>
-            <p id="paige-description">${description}</p>
+            <p id="new-description">${description}</p>
             <button id="new-button-edit">Modifier</button>
             <button id="new-btn-suppr">Supprimer</button>
         </div>
