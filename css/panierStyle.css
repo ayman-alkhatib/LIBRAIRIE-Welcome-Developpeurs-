@@ -41,6 +41,7 @@
 .main-section li .btns button {
     background-color: transparent;
     border: none;
+    cursor: pointer;
 }
 
 .main-section ul li i {
