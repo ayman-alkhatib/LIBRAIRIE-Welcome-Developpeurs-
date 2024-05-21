@@ -12,6 +12,7 @@ This project is part of a weekly task to create a website using HTML, CSS, and J
   
 Team Members
 
-Romain AUGER: Responsible for the store page.
-Ayman ALKHATIB: Responsible for the cart page.
-Thibaut GAUDIANT : Responsible for the team page
+- Romain AUGER: Responsible for the store page.
+- Ayman ALKHATIB: Responsible for the cart page.
+- Thibaut GAUDIANT : Responsible for the team page
+
