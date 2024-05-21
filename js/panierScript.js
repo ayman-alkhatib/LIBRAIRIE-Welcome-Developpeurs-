@@ -1,4 +1,4 @@
-let booksId = [0, 1, 4, 6, 5]
+// git data from the magazin page 
 
 let panier = [{
     bookId: 0,
@@ -16,9 +16,11 @@ let panier = [{
     count: 3
 },
 {
-    bookId: 1,
+    bookId: 8,
     count: 1
 }]
+
+// call putInPanier fn for each book
 
 panier.forEach(bookPanier => {
     putInPanier(books[bookPanier.bookId], bookPanier.count)
@@ -37,16 +39,16 @@ checkoutbtn.onclick = handleCheckout
 
 
 
-function putInPanier(booksId, bookCount) {
+function putInPanier(bookObj, bookCount) {
 
     let myMainElement = document.querySelector(".books")
     let book = document.createElement("li")
 
-    book.id = `li-${booksId.id}` // Add id to book booksId
+    book.id = `li-${bookObj.id}` // Add id to book bookObj
 
-    addBookImg(book, booksId) // add Book images to book-li
+    addBookImg(book, bookObj) // add Book images to book-li
 
-    createInfo(book, booksId, bookCount)
+    createInfo(book, bookObj, bookCount)
 
     myMainElement.appendChild(book) // put the element in html
 
